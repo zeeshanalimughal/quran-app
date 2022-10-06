@@ -1,10 +1,10 @@
 const Book = require("../models/BookModel");
 const { body,validationResult } = require("express-validator");
-const { sanitizeBody } = require("express-validator");
+const { check } = require("express-validator");
 const apiResponse = require("../helpers/apiResponse");
 const auth = require("../middlewares/jwt");
 var mongoose = require("mongoose");
-mongoose.set("useFindAndModify", false);
+// mongoose.set("useFindAndModify", false);
 
 // Book Schema
 function BookData(data) {
@@ -87,7 +87,7 @@ exports.bookStore = [
 			}
 		});
 	}),
-	sanitizeBody("*").escape(),
+	check("*").escape(),
 	(req, res) => {
 		try {
 			const errors = validationResult(req);
@@ -136,7 +136,7 @@ exports.bookUpdate = [
 			}
 		});
 	}),
-	sanitizeBody("*").escape(),
+	check("*").escape(),
 	(req, res) => {
 		try {
 			const errors = validationResult(req);
