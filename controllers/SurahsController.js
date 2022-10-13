@@ -16,6 +16,8 @@ const apiResponse = require("../helpers/apiResponse");
 			Surah.find({}).select({
 				"number":1,
 				"name":1,
+				"englishName":1,
+				"revelationType":1,
 				"ayahs.number":1,
 				"ayahs.text":1,
 				"ayahs.audio":1,
