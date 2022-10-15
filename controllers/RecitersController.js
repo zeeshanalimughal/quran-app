@@ -13,8 +13,10 @@ const apiResponse = require("../helpers/apiResponse");
 	// auth,
 	function (req, res) {
 		try {
-        
-			Reciters.find({'language':'ar'}).select({'englishName':0,'direction':0,'name':0}).then((reciters)=>{
+			// Reciters.updateMany({"language":"ar"},{$set:{"profileImage":"https://www.islamicdb.com/img/artists/1556274814.jpg"}}).then(function (){
+			// 	return res.send("Updated Images")
+			// })
+			Reciters.find({'language':'ar','format':'audio'}).select({'englishName':0,'direction':0,'name':0}).then((reciters)=>{
 				if(reciters.length > 0){
 					return apiResponse.successResponseWithData(res, "Operation success", reciters);
 				}else{
@@ -38,7 +40,6 @@ const apiResponse = require("../helpers/apiResponse");
  exports.recitersListWithType = [
 	// auth,
 	function (req, res) {
-        console.log(req.params.type)
 		try {
 			Reciters.find({type:req.params.type,language:'ar'}).select({'englishName':0,'direction':0,'name':0}).then((reciters)=>{
 				if(reciters.length > 0){

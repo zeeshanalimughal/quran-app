@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var RecitersSchema = new Schema({
-        "identifier": {
+        "reciter": {
           "type": "String"
         },
         "language": {
@@ -11,6 +11,9 @@ var RecitersSchema = new Schema({
         },
         "name": {
           "type": "String"
+        },
+        "profileImage": {
+          "type": "String",
         },
         "englishName": {
           "type": "String"
