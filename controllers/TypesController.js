@@ -14,7 +14,6 @@ const apiResponse = require("../helpers/apiResponse");
 	function (req, res) {
 		try {
 			Type.find({}).then((types)=>{
-				console.log(types)
 				if(types.length > 0){
 					return apiResponse.successResponseWithData(res, "Operation success", types);
 				}else{
